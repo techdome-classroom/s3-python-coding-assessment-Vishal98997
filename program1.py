@@ -1,5 +1,5 @@
 class Solution(object):
-    def isvalid(s: str) -> bool:
+    def isvalid(self,s):
         stack = []
         opening = '({['
         closing = ')}]'
