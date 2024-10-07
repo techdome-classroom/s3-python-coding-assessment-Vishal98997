@@ -1,17 +1,17 @@
 class Solution(object):
     def is_valid(s: str) -> bool:
-    stack = []
-    opening = '({['
-    closing = ')}]'
-    matches = {')': '(', '}': '{', ']': '['}
+        stack = []
+        opening = '({['
+        closing = ')}]'
+        matches = {')': '(', '}': '{', ']': '['}
 
-    for char in s:
-        if char in opening:
-            stack.append(char)
-        elif char in closing:
-            if stack and stack[-1] == matches[char]:
-                stack.pop()
-            else:
-                return False
+        for char in s:
+            if char in opening:
+                stack.append(char)
+            elif char in closing:
+                if stack and stack[-1] == matches[char]:
+                    stack.pop()
+                else:
+                    return False
 
-    return len(stack) == 0
+        return len(stack) == 0
