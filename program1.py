@@ -1,28 +1,16 @@
-class Solution(object):
-    def isValid(self,s):
-   
-        stack = []
+def is_valid(s: str) -> bool:
+    stack = []
+    opening = '({['
+    closing = ')}]'
+    matches = {')': '(', '}': '{', ']': '['}
 
-        # Map of closing brackets to their corresponding opening brackets
-        bracket_map = {
-            ')': '(',
-            '}': '{',
-            ']': '['
-        }
-
-    
-        for char in s:
-            
-            if char in bracket_map:
-            
-                top_element = stack.pop() if stack else '#'
-                
-                
-                if bracket_map[char] != top_element:
-                    return False
+    for char in s:
+        if char in opening:
+            stack.append(char)
+        elif char in closing:
+            if stack and stack[-1] == matches[char]:
+                stack.pop()
             else:
-            
-                stack.append(char)
+                return False
 
-        
-        return len(stack) ==0
+    return len(stack) == 0
