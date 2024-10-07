@@ -25,4 +25,4 @@ class Solution(object):
                 stack.append(char)
 
         
-        return len(stack) == 0
+        return len(stack) =
